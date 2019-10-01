@@ -6,6 +6,10 @@ class Product(models.Model):
     CATEGORIES = (
         ("HC","Handicraft"),
         ("FD","Food"),
+        ("BE","Beauty"),
+        ("CL","Clothing"),
+        ("FJ","Fashion Jewellery"),
+        ("HG","Home and Garden"),
     )
     product_id = models.BigAutoField(primary_key=True)
     product_title = models.CharField(max_length=200)
