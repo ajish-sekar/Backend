@@ -30,6 +30,7 @@ ALLOWED_HOSTS = ["*"]
 PHONENUMBER_DEFAULT_REGION = "IN"
 
 # Application definition
+REST_FRAMEWORK = { 'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema' }
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -39,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'rest_framework_swagger',
     'phonenumber_field',
     'seller',
     'products',

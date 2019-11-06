@@ -1,22 +1,10 @@
-from django.shortcuts import render
+from django.shortcuts import render,get_object_or_404
 from django.http import JsonResponse
 from .models import Product
+from rest_framework import viewsets
+from rest_framework.response import Response
+from .serializers import ProductSerializer
 
-# Create your views here.
-def product_list(request):
-    # pass
-    products = Product.objects.all()
-    json_response = []
-    for product in products:
-        json_response.append({
-            "product_id" : product.product_id,
-            "product_title":product.product_title,
-            "product_price":product.product_price,
-            "product_description":product.product_description,
-            "product_category":product.product_category
-        })
-    return JsonResponse(json_response,safe=False)
-    pass
-
-def product_detail(request):
-    pass
+class ProductViewSet(viewsets.ModelViewSet):
+    serializer_class = ProductSerializer
+    queryset = Product.objects.all()
